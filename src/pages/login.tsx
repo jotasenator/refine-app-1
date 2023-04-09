@@ -7,9 +7,9 @@ import { ThemedTitle } from "@refinedev/mui";
 import { yariga } from "assets";
 
 import { CredentialResponse } from "../interfaces/google";
+import { display } from "@mui/system";
 
 const REACT_APP_GOOGLE_CLIENT_ID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-console.log(REACT_APP_GOOGLE_CLIENT_ID);
 
 export const Login: React.FC = () => {
   const { mutate: login } = useLogin<CredentialResponse>();
@@ -52,6 +52,7 @@ export const Login: React.FC = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#fcfcfc",
       }}
     >
       <Box
@@ -60,17 +61,26 @@ export const Login: React.FC = () => {
         justifyContent="center"
         flexDirection="column"
       >
-        <ThemedTitle
+        {/* <ThemedTitle
           collapsed={false}
           wrapperStyles={{
             fontSize: "22px",
             justifyContent: "center",
           }}
-        />
+        /> */}
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <img src={yariga} alt="Yariga logo" />
+        </div>
 
         <GoogleButton />
 
-        <Typography align="center" color={"text.secondary"} fontSize="12px">
+        {/* <Typography align="center" color={"text.secondary"} fontSize="12px">
           Powered by
           <img
             style={{ padding: "0 5px" }}
@@ -78,7 +88,7 @@ export const Login: React.FC = () => {
             src="https://refine.ams3.cdn.digitaloceanspaces.com/superplate-auth-icons%2Fgoogle.svg"
           />
           Google
-        </Typography>
+        </Typography> */}
       </Box>
     </Container>
   );
